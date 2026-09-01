@@ -48,20 +48,25 @@
       <span></span><span></span>
     </button>
   </div>
-
-  <div class="mobile-nav" id="mobile-nav">
-    <nav aria-label="Navigazione mobile">
-      <ul>
-        <li><a href="#manifesto">Manifesto</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#servizi">Servizi</a></li>
-        <li><a href="#dove-siamo">Dove Siamo</a></li>
-        <li><a href="#team">Team</a></li>
-      </ul>
-    </nav>
-    <a href="#prenota" class="btn btn-primary btn-large">Prenota</a>
-  </div>
 </header>
+
+<!-- Fuori da <header>: l'header ha backdrop-filter sempre attivo, che per
+     specifica crea un containing block per i discendenti position:fixed.
+     Se il menu restasse dentro l'header si posizionerebbe relativo a
+     quella piccola barra invece che al viewport (bug visibile su Safari
+     iOS, che rispetta questa regola più rigorosamente di altri browser). -->
+<div class="mobile-nav" id="mobile-nav">
+  <nav aria-label="Navigazione mobile">
+    <ul>
+      <li><a href="#manifesto">Manifesto</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#dove-siamo">Dove Siamo</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+  </nav>
+  <a href="#prenota" class="btn btn-primary btn-large">Prenota</a>
+</div>
 
 <main id="main">
 
@@ -125,15 +130,15 @@
     <div class="container">
       <p class="eyebrow reveal">01 — Manifesto</p>
       <div class="manifesto-stack">
-        <p class="manifesto-line reveal">Non copiamo</p>
-        <p class="manifesto-line line-shift reveal">un'immagine.</p>
-        <p class="manifesto-line line-accent reveal">Costruiamo una forma</p>
-        <p class="manifesto-line line-end reveal">che ti appartiene.</p>
+        <p class="manifesto-line reveal">Partiamo dai tuoi capelli,</p>
+        <p class="manifesto-line line-shift reveal">non da una foto.</p>
+        <p class="manifesto-line line-accent reveal">Un taglio pensato</p>
+        <p class="manifesto-line line-end reveal">per te.</p>
       </div>
       <div class="manifesto-support reveal">
-        <p>Lavoriamo per sottrazione.</p>
-        <p>Meno effetto, più struttura.</p>
-        <p>Perché ogni linea regga nel tempo — non solo il giorno dell'appuntamento.</p>
+        <p>Taglio, colore e styling pensati per valorizzare i tuoi capelli.</p>
+        <p>Facili da gestire anche a casa.</p>
+        <p>Il risultato conta anche il giorno dopo, non solo oggi.</p>
       </div>
     </div>
   </section>
@@ -309,7 +314,7 @@
   <section class="section section-dark" id="recensioni">
     <div class="container">
       <p class="eyebrow reveal">06 — Recensioni</p>
-      <h2 class="section-title reveal">La fiducia si vede nei dettagli.</h2>
+      <h2 class="section-title reveal">Cosa dicono i nostri clienti.</h2>
 
       <div class="review-list">
         <article class="review-item reveal">
@@ -422,6 +427,18 @@
     <p class="footer-legal">&copy; <span id="year"></span> ÉLAN Hair Studio &mdash; Demo di portfolio.</p>
   </div>
 </footer>
+
+<a
+  href="https://wa.me/390000000000"
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener"
+  aria-label="Scrivici su WhatsApp"
+>
+  <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+    <path d="M16.02 4C9.4 4 4 9.36 4 15.94c0 2.24.62 4.33 1.7 6.13L4 28l6.13-1.6a12.1 12.1 0 0 0 5.89 1.5h.01c6.62 0 12.02-5.36 12.02-11.94C28.05 9.36 22.65 4 16.02 4Zm0 21.84h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.64.95.97-3.53-.24-.37a9.83 9.83 0 0 1-1.53-5.36c0-5.46 4.47-9.9 9.96-9.9 2.66 0 5.16 1.04 7.04 2.92a9.83 9.83 0 0 1 2.92 7.02c0 5.46-4.47 9.86-9.97 9.86Zm5.46-7.4c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.46-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.91-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+  </svg>
+</a>
 
 <script src="js/script.js"></script>
 </body>

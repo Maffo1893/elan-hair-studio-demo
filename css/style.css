@@ -227,7 +227,12 @@ input, select { font: inherit; }
 
 .mobile-nav {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
   background: var(--color-ink);
   color: var(--color-paper);
   z-index: 45;
@@ -235,12 +240,14 @@ input, select { font: inherit; }
   flex-direction: column;
   justify-content: flex-start;
   gap: var(--space-4);
-  padding: calc(var(--demo-bar-h, 34px) + 6.5rem) clamp(1.25rem, 6vw, 3rem) var(--space-3);
+  padding: calc(var(--demo-bar-h, 34px) + var(--header-h, 76px) + var(--space-3)) clamp(1.25rem, 6vw, 3rem) calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
   opacity: 0;
   visibility: hidden;
   transform: translateY(-8px);
   transition: opacity 0.45s var(--ease), transform 0.45s var(--ease), visibility 0.45s;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 .nav-open .mobile-nav {
   opacity: 1;
@@ -250,9 +257,12 @@ input, select { font: inherit; }
 .mobile-nav ul { display: flex; flex-direction: column; gap: 0.6rem; }
 .mobile-nav a {
   font-family: var(--font-display);
-  font-size: clamp(1.7rem, 7vw, 2.4rem);
+  font-size: clamp(1.6rem, 6.5vw, 2.4rem);
 }
 @media (min-width: 900px) { .mobile-nav { display: none; } }
+
+/* Blocca lo scroll della pagina sotto mentre il menu fullscreen è aperto */
+html.nav-open { overflow: hidden; }
 
 /* ============================================================
    Hero — scroll-driven stage
@@ -1004,3 +1014,41 @@ input, select { font: inherit; }
   padding-top: var(--space-3);
 }
 .footer-legal { font-size: 0.75rem; color: var(--text-tertiary); }
+
+/* ============================================================
+   WhatsApp — pulsante flottante
+   ============================================================ */
+.whatsapp-float {
+  position: fixed;
+  right: clamp(1rem, 4vw, 1.75rem);
+  bottom: calc(clamp(1rem, 4vw, 1.75rem) + env(safe-area-inset-bottom, 0px));
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  z-index: 40;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), opacity 0.25s var(--ease);
+}
+.whatsapp-float.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
+@media (hover: hover) {
+  .whatsapp-float:hover {
+    transform: scale(1.06);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+  }
+}
+.whatsapp-float:focus-visible {
+  outline: 2px solid var(--color-accent-glow);
+  outline-offset: 3px;
+}

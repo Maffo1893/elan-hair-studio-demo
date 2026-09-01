@@ -1,35 +1,61 @@
 // Anno corrente nel footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Header fisso: si posiziona subito sotto la demo-bar, la cui altezza varia
-// con il wrap del testo su viewport stretti (misurata invece di essere ipotizzata).
+// Header fisso: il menu mobile deve iniziare subito sotto demo-bar + header,
+// entrambi di altezza variabile (la demo-bar va a capo su viewport stretti;
+// l'header cambia padding con lo scroll) — misurate invece di ipotizzate,
+// altrimenti il primo link del menu finisce nascosto sotto la barra fissa.
 const demoBar = document.querySelector('.demo-bar');
-function syncDemoBarHeight() {
+const header = document.getElementById('site-header');
+function syncChromeHeights() {
   if (demoBar) {
     document.documentElement.style.setProperty('--demo-bar-h', demoBar.offsetHeight + 'px');
   }
+  if (header) {
+    document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+  }
 }
-syncDemoBarHeight();
-window.addEventListener('resize', syncDemoBarHeight, { passive: true });
+syncChromeHeights();
+window.addEventListener('resize', syncChromeHeights, { passive: true });
 
 // Header: sfondo dopo lo scroll
-const header = document.getElementById('site-header');
 const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
 
-// Menu mobile
+// Menu mobile: lo stato "aperto" vive su <html> (non sull'header) perché il
+// pannello ora è un fratello dell'header, non un suo discendente — l'header
+// ha backdrop-filter sempre attivo, che creerebbe un containing block errato
+// per un pannello position:fixed annidato al suo interno (bug reale su iOS
+// Safari). Su <html> serve comunque per bloccare lo scroll della pagina sotto.
 const navToggle = document.getElementById('nav-toggle');
+const htmlEl = document.documentElement;
+function closeMobileNav() {
+  htmlEl.classList.remove('nav-open');
+  navToggle.setAttribute('aria-expanded', 'false');
+}
 navToggle.addEventListener('click', () => {
-  const isOpen = header.classList.toggle('nav-open');
+  const isOpen = htmlEl.classList.toggle('nav-open');
   navToggle.setAttribute('aria-expanded', String(isOpen));
+  if (isOpen) syncChromeHeights(); // altezze aggiornate anche se cambiate da ultima misura
 });
 document.querySelectorAll('.mobile-nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    header.classList.remove('nav-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  });
+  link.addEventListener('click', closeMobileNav);
 });
+
+// WhatsApp flottante: nascosto quando la sezione prenotazione è in vista, perché
+// lì c'è già una card WhatsApp dedicata e a schermi stretti il pulsante finirebbe
+// sovrapposto alle card (coprendo la CTA invece di affiancarla).
+const waFloat = document.querySelector('.whatsapp-float');
+const prenotaSection = document.getElementById('prenota');
+if (waFloat && prenotaSection && 'IntersectionObserver' in window) {
+  const waObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      waFloat.classList.toggle('is-hidden', entry.isIntersecting);
+    });
+  }, { threshold: 0.05 });
+  waObserver.observe(prenotaSection);
+}
 
 // Reveal on scroll
 const revealEls = document.querySelectorAll('.reveal');
