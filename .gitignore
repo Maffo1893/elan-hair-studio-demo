@@ -1,0 +1,14 @@
+# Tooling locale (non necessario al sito, non deve essere pubblicato)
+.claude/
+
+# Sorgenti pesanti non usati dal sito (video master 4K e PNG originali della
+# gallery, sostituiti dalle versioni web ottimizzate già in assets/): tenuti
+# solo in locale come riferimento, non fanno parte del deploy.
+assets/video/elan-hero-master.mp4
+assets/images/gallery/*.png
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log

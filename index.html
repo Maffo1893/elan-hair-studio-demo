@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ÉLAN Hair Studio | Studio di Taglio, Colore e Forma a Genova</title>
+<meta name="description" content="ÉLAN Hair Studio — studio editoriale di taglio, colore e forma nel centro di Genova. Progetto dimostrativo di portfolio.">
+<meta name="robots" content="noindex, nofollow">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="ÉLAN Hair Studio | Genova">
+<meta property="og:description" content="Studio di taglio, colore e forma. Progetto dimostrativo di portfolio.">
+<meta name="theme-color" content="#0E0E10">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,500;1,6..96,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="demo-bar">Progetto dimostrativo <strong>fittizio</strong> realizzato a scopo di portfolio. Nome, indirizzo, contatti, prezzi e attività sono di fantasia.</div>
+
+<a class="skip-link" href="#main">Vai al contenuto</a>
+
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="#" class="brand">
+      <span class="brand-text">ÉLAN</span>
+      <span class="brand-sub">Hair Studio</span>
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <ul>
+        <li><a href="#manifesto"><span>Manifesto</span></a></li>
+        <li><a href="#gallery"><span>Gallery</span></a></li>
+        <li><a href="#servizi"><span>Servizi</span></a></li>
+        <li><a href="#team"><span>Team</span></a></li>
+        <li><a href="#dove-siamo"><span>Dove Siamo</span></a></li>
+      </ul>
+    </nav>
+
+    <a href="#prenota" class="btn btn-primary btn-small nav-cta">Prenota</a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Apri il menu di navigazione">
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <nav aria-label="Navigazione mobile">
+      <ul>
+        <li><a href="#manifesto">Manifesto</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#dove-siamo">Dove Siamo</a></li>
+      </ul>
+    </nav>
+    <a href="#prenota" class="btn btn-primary btn-large">Prenota</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <!-- Sequenza cinematica scroll-driven: hero-video.currentTime = p * duration,
+       p (0→1) calcolato dalla posizione di scroll dentro .hero-scroll (js/script.js).
+       Timecode reali individuati analizzando assets/video/elan-hero-master.mp4:
+       CUT ~0.5–2.5s (macro strutturata, linee nette), COLOR ~6.0–7.2s (luce calda
+       bronze/caramel), FORM ~7.6–8.7s (silhouette/volume pieno), finale stabile 9–10s. -->
+  <section class="hero" id="hero">
+    <div class="hero-scroll" id="hero-scroll">
+      <div class="hero-stage">
+
+        <div class="hero-media" aria-hidden="true">
+          <video
+            id="hero-video"
+            class="hero-video"
+            src="assets/video/elan-hero-web.mp4"
+            data-src-desktop="assets/video/elan-hero-web-desktop.mp4"
+            data-src-mobile="assets/video/elan-hero-web.mp4"
+            muted
+            playsinline
+            webkit-playsinline="true"
+            preload="auto"
+          ></video>
+          <div class="hero-grain"></div>
+        </div>
+
+        <div class="hero-sequence" aria-hidden="true">
+          <span class="hero-word" data-step="0">CUT</span>
+          <span class="hero-word" data-step="1">COLOR</span>
+          <span class="hero-word" data-step="2">FORM</span>
+        </div>
+
+        <div class="hero-intro" id="hero-intro">
+          <p class="hero-mark">
+            <span class="hero-mark-brand">ÉLAN</span>
+            <span class="hero-mark-sub">Hair Studio</span>
+            <span class="hero-mark-loc">Genova</span>
+          </p>
+          <span class="hero-scroll-cue" aria-hidden="true"><span></span>Scroll</span>
+        </div>
+
+        <div class="hero-frame" id="hero-frame">
+          <h1 class="hero-headline">
+            <span class="hero-line">Il taglio è</span>
+            <span class="hero-line">una decisione.</span>
+          </h1>
+          <div class="hero-actions">
+            <a href="#prenota" class="btn btn-primary">Prenota</a>
+            <a href="#manifesto" class="hero-hint"><span>Scopri lo studio</span></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MANIFESTO ============ -->
+  <section class="section section-light" id="manifesto">
+    <div class="container">
+      <p class="eyebrow reveal">01 — Manifesto</p>
+      <div class="manifesto-stack">
+        <p class="manifesto-line reveal">Non copiamo</p>
+        <p class="manifesto-line line-shift reveal">un'immagine.</p>
+        <p class="manifesto-line line-accent reveal">Costruiamo una forma</p>
+        <p class="manifesto-line line-end reveal">che ti appartiene.</p>
+      </div>
+      <p class="manifesto-support reveal">Lavoriamo per sottrazione — meno effetto, più struttura — perché ogni linea regga nel tempo, non solo il giorno dell'appuntamento.</p>
+    </div>
+  </section>
+
+  <!-- ============ HAIR GALLERY ============ -->
+  <section class="section section-dark" id="gallery">
+    <div class="container">
+      <p class="eyebrow reveal">02 — Hair Gallery</p>
+      <h2 class="section-title reveal">Movimento, in dettaglio.</h2>
+
+      <div class="gallery-grid">
+        <figure class="gallery-frame gf-1 reveal">
+          <img src="assets/images/gallery/01-movimento.webp" width="1050" height="1400" alt="Capelli lunghi mossi, ripresi da dietro, dettaglio di movimento" loading="lazy" decoding="async">
+          <span class="gallery-num">01</span>
+          <figcaption>Movimento</figcaption>
+        </figure>
+        <figure class="gallery-frame gf-2 reveal">
+          <img src="assets/images/gallery/02-texture.webp" width="1254" height="1254" alt="Macro ravvicinata della texture dei capelli" loading="lazy" decoding="async">
+          <span class="gallery-num">02</span>
+          <figcaption>Texture</figcaption>
+        </figure>
+        <figure class="gallery-frame gf-3 reveal">
+          <img src="assets/images/gallery/03-balayage.webp" width="1050" height="1400" class="crop-top" alt="Nuca con balayage dalla transizione colore naturale" loading="lazy" decoding="async">
+          <span class="gallery-num">03</span>
+          <figcaption>Balayage</figcaption>
+        </figure>
+        <figure class="gallery-frame gf-4 reveal">
+          <img src="assets/images/gallery/04-piega.webp" width="1400" height="788" alt="Piega morbida ed editoriale, ripresa da dietro" loading="lazy" decoding="async">
+          <span class="gallery-num">04</span>
+          <figcaption>Piega</figcaption>
+        </figure>
+        <figure class="gallery-frame gf-5 reveal">
+          <img src="assets/images/gallery/05-dettaglio.webp" width="1050" height="1400" alt="Macro estrema di una ciocca di capelli lucidi" loading="lazy" decoding="async">
+          <span class="gallery-num">05</span>
+          <figcaption>Dettaglio</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVIZI ============ -->
+  <section class="section section-light" id="servizi">
+    <div class="container">
+      <p class="eyebrow reveal">03 — Servizi</p>
+      <h2 class="section-title reveal">Il listino.</h2>
+
+      <ul class="service-list">
+        <li class="service-item reveal">
+          <a class="service-row" href="#prenota">
+            <span class="service-main">
+              <span class="service-name">Taglio</span>
+              <span class="service-desc">Consulenza, lavaggio e taglio su misura, uomo o donna.</span>
+            </span>
+            <span class="service-price">&euro;55</span>
+          </a>
+        </li>
+        <li class="service-item reveal">
+          <a class="service-row" href="#prenota">
+            <span class="service-main">
+              <span class="service-name">Styling</span>
+              <span class="service-desc">Piega, styling per occasione o styling quotidiano.</span>
+            </span>
+            <span class="service-price">&euro;30</span>
+          </a>
+        </li>
+        <li class="service-item reveal">
+          <a class="service-row" href="#prenota">
+            <span class="service-main">
+              <span class="service-name">Colore</span>
+              <span class="service-desc">Colore uniforme, ritocco radice, tono su tono.</span>
+            </span>
+            <span class="service-price">&euro;70</span>
+          </a>
+        </li>
+        <li class="service-item reveal">
+          <a class="service-row" href="#prenota">
+            <span class="service-main">
+              <span class="service-name">Balayage</span>
+              <span class="service-desc">Schiaritura a mano libera, fondi fusi, luce naturale.</span>
+            </span>
+            <span class="service-price">&euro;140</span>
+          </a>
+        </li>
+        <li class="service-item reveal">
+          <a class="service-row" href="#prenota">
+            <span class="service-main">
+              <span class="service-name">Trattamenti</span>
+              <span class="service-desc">Ristrutturanti mirati, pre o post colore.</span>
+            </span>
+            <span class="service-price">&euro;45</span>
+          </a>
+        </li>
+        <li class="service-item reveal">
+          <a class="service-row" href="#prenota">
+            <span class="service-main">
+              <span class="service-name">Bridal &amp; Event Hair</span>
+              <span class="service-desc">Acconciatura per matrimoni ed eventi, prova inclusa.</span>
+            </span>
+            <span class="service-price">&euro;120</span>
+          </a>
+        </li>
+      </ul>
+      <p class="service-note reveal">Prezzi a partire da. Il preventivo definitivo viene sempre confermato in studio.</p>
+    </div>
+  </section>
+
+  <!-- ============ SIGNATURE SERVICES ============ -->
+  <section class="section section-dark" id="signature">
+    <div class="container">
+      <p class="eyebrow reveal">04 — Signature Services</p>
+      <h2 class="section-title reveal">Le firme dello studio.</h2>
+
+      <div class="signature-list">
+        <article class="signature-feature reveal">
+          <span class="signature-num">01</span>
+          <div class="signature-content">
+            <h3>The ÉLAN Cut</h3>
+            <p>Struttura costruita a secco e rifinita a umido, per un movimento che non dipende dalla piega.</p>
+          </div>
+        </article>
+        <article class="signature-feature align-right reveal">
+          <span class="signature-num">02</span>
+          <div class="signature-content">
+            <h3>Color Atelier</h3>
+            <p>Mèche e fondi fusi senza linee di demarcazione. Ogni formula è calibrata sulla luce naturale.</p>
+          </div>
+        </article>
+        <article class="signature-feature reveal">
+          <span class="signature-num">03</span>
+          <div class="signature-content">
+            <h3>Texture &amp; Treatment</h3>
+            <p>Trattamenti mirati per ristabilire struttura e movimento prima ancora del taglio.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section class="section section-light" id="team">
+    <div class="container">
+      <p class="eyebrow reveal">05 — Team</p>
+      <h2 class="section-title reveal">Chi lavora in studio.</h2>
+
+      <ul class="team-list">
+        <li class="team-item reveal">
+          <span class="team-initials">GF</span>
+          <span class="team-info">
+            <span class="team-name">Giulia Ferretti</span>
+            <span class="team-role">Direzione Creativa &amp; Taglio</span>
+          </span>
+          <span class="team-year">Dal 2019</span>
+        </li>
+        <li class="team-item reveal">
+          <span class="team-initials">MB</span>
+          <span class="team-info">
+            <span class="team-name">Marco Belli</span>
+            <span class="team-role">Color Specialist</span>
+          </span>
+          <span class="team-year">Dal 2021</span>
+        </li>
+        <li class="team-item reveal">
+          <span class="team-initials">SC</span>
+          <span class="team-info">
+            <span class="team-name">Sara Conti</span>
+            <span class="team-role">Styling &amp; Bridal</span>
+          </span>
+          <span class="team-year">Dal 2022</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ PRENOTAZIONE ============ -->
+  <section class="section section-accent" id="prenota">
+    <div class="container">
+      <p class="eyebrow reveal">06 — Prenotazione</p>
+      <div class="booking-campaign reveal">
+        <p class="booking-kicker">Ready for a change?</p>
+        <h2 class="booking-headline">Prenota il tuo<br>appuntamento.</h2>
+      </div>
+
+      <div class="booking-grid">
+        <div class="booking-contacts reveal">
+          <a href="tel:+390100000000" class="booking-contact">
+            <span class="booking-label">Telefono</span>
+            <span class="booking-value">+39 010 000 0000</span>
+          </a>
+          <a href="https://wa.me/390000000000" class="booking-contact" target="_blank" rel="noopener">
+            <span class="booking-label">WhatsApp</span>
+            <span class="booking-value">+39 000 000 0000</span>
+          </a>
+          <a href="mailto:hello@elanhairstudio.demo" class="booking-contact">
+            <span class="booking-label">Email</span>
+            <span class="booking-value">hello@elanhairstudio.demo</span>
+          </a>
+        </div>
+
+        <form class="booking-form reveal" id="booking-form" novalidate>
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="bf-name">Nome</label>
+              <input type="text" id="bf-name" name="name" autocomplete="off" required>
+            </div>
+            <div class="form-row">
+              <label for="bf-contact">Email o telefono</label>
+              <input type="text" id="bf-contact" name="contact" autocomplete="off" required>
+            </div>
+            <div class="form-row">
+              <label for="bf-service">Servizio</label>
+              <select id="bf-service" name="service">
+                <option>Taglio</option>
+                <option>Styling</option>
+                <option>Colore</option>
+                <option>Balayage</option>
+                <option>Trattamenti</option>
+                <option>Bridal &amp; Event Hair</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="bf-date">Data preferita</label>
+              <input type="date" id="bf-date" name="date" autocomplete="off">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-secondary">Invia richiesta</button>
+          <p class="form-confirm" id="form-confirm" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DOVE SIAMO ============ -->
+  <section class="section section-dark" id="dove-siamo">
+    <div class="container">
+      <p class="eyebrow reveal">07 — Dove Siamo</p>
+      <div class="location-statement reveal">
+        <span>Genova</span><span class="accent">Centro</span>
+      </div>
+      <div class="location-details">
+        <dl class="hours-list reveal">
+          <div><dt>Mar &ndash; Ven</dt><dd>9:30 &ndash; 19:00</dd></div>
+          <div><dt>Sabato</dt><dd>9:30 &ndash; 18:00</dd></div>
+          <div><dt>Lun &amp; Dom</dt><dd>Chiuso</dd></div>
+        </dl>
+        <div class="location-contact reveal">
+          <a href="tel:+390100000000">+39 010 000 0000</a>
+          <a href="mailto:hello@elanhairstudio.demo">hello@elanhairstudio.demo</a>
+        </div>
+        <div class="location-map-mini reveal" aria-hidden="true">
+          <svg viewBox="0 0 100 100" class="map-pin"><path d="M50 15 C 35 15, 25 27, 25 42 C 25 62, 50 85, 50 85 C 50 85, 75 62, 75 42 C 75 27, 65 15, 50 15 Z" /><circle cx="50" cy="42" r="9" /></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">ÉLAN</span>
+      <span class="brand-sub">Hair Studio</span>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Studio</h4>
+        <a href="#manifesto">Manifesto</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#team">Team</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contatti</h4>
+        <a href="tel:+390100000000">+39 010 000 0000</a>
+        <a href="mailto:hello@elanhairstudio.demo">hello@elanhairstudio.demo</a>
+        <span>Genova &middot; Centro</span>
+      </div>
+      <div class="footer-col">
+        <h4>Social</h4>
+        <a href="#" onclick="return false;">Instagram</a>
+        <a href="#" onclick="return false;">Pinterest</a>
+      </div>
+    </div>
+
+    <p class="footer-disclaimer">Progetto dimostrativo fittizio realizzato a scopo di portfolio. Nome, indirizzo, contatti, prezzi e attività sono di fantasia.</p>
+    <p class="footer-legal">&copy; <span id="year"></span> ÉLAN Hair Studio &mdash; Demo di portfolio.</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
