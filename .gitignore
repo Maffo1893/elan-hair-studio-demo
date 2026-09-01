@@ -1,5 +1,6 @@
 # Tooling locale (non necessario al sito, non deve essere pubblicato)
 .claude/
+.wrangler/
 
 # Sorgenti pesanti non usati dal sito (video master 4K e PNG originali della
 # gallery, sostituiti dalle versioni web ottimizzate già in assets/): tenuti

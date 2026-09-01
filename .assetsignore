@@ -1,3 +1,8 @@
 .git
 .gitignore
+.assetsignore
 wrangler.jsonc
+.claude
+.wrangler
+assets/video/elan-hero-master.mp4
+assets/images/gallery/*.png
