@@ -247,30 +247,40 @@
 
   <!-- ============ DOVE SIAMO ============ -->
   <section class="section section-dark" id="dove-siamo">
-    <div class="container">
-      <p class="eyebrow reveal">04 — Dove Siamo</p>
-      <div class="location-statement reveal">
-        <span>Genova</span><span class="accent">Centro</span>
+    <div class="container location-grid">
+      <div class="location-info reveal">
+        <p class="eyebrow">04 — Dove Siamo</p>
+        <h2 class="section-title">Vieni a trovarci</h2>
+
+        <dl class="info-list">
+          <div>
+            <dt>Indirizzo</dt>
+            <dd>Via San Lorenzo 18R, 16123 Genova GE</dd>
+          </div>
+          <div>
+            <dt>Orari</dt>
+            <dd>Mar &ndash; Ven 9:30&ndash;19:00<br>Sabato 9:30&ndash;18:00<br>Lun &amp; Dom Chiuso</dd>
+          </div>
+          <div>
+            <dt>Telefono</dt>
+            <dd><a href="tel:+390100000000">+39 010 000 0000</a></dd>
+          </div>
+        </dl>
+
+        <div class="location-actions">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Via+San+Lorenzo+18R+16123+Genova" class="btn btn-primary" target="_blank" rel="noopener">Apri in Google Maps</a>
+          <a href="tel:+390100000000" class="btn btn-secondary">Chiama ora</a>
+        </div>
+        <p class="location-note">Dati di localizzazione fittizi, mostrati a scopo dimostrativo.</p>
       </div>
 
-      <div class="location-details">
-        <div class="location-info reveal">
-          <dl class="hours-list">
-            <div><dt>Mar &ndash; Ven</dt><dd>9:30 &ndash; 19:00</dd></div>
-            <div><dt>Sabato</dt><dd>9:30 &ndash; 18:00</dd></div>
-            <div><dt>Lun &amp; Dom</dt><dd>Chiuso</dd></div>
-          </dl>
-          <div class="location-contact">
-            <a href="tel:+390100000000">+39 010 000 0000</a>
-            <a href="mailto:hello@elanhairstudio.demo">hello@elanhairstudio.demo</a>
-          </div>
-        </div>
-
-        <a class="location-map-card reveal" href="https://www.google.com/maps/search/?api=1&query=Genova+Centro" target="_blank" rel="noopener" aria-label="Apri la zona indicativa dello studio su Google Maps">
-          <svg viewBox="0 0 100 100" class="map-pin" aria-hidden="true"><path d="M50 15 C 35 15, 25 27, 25 42 C 25 62, 50 85, 50 85 C 50 85, 75 62, 75 42 C 75 27, 65 15, 50 15 Z" /><circle cx="50" cy="42" r="9" /></svg>
-          <span class="location-map-caption">Genova &middot; Centro</span>
-          <span class="location-map-cta">Come arrivare <span aria-hidden="true">&rarr;</span></span>
-        </a>
+      <div class="location-map reveal">
+        <iframe
+          title="Mappa — Via San Lorenzo 18R, Genova (dimostrativa)"
+          src="https://www.google.com/maps?q=Via+San+Lorenzo+18R+16123+Genova&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </div>
   </section>
@@ -359,6 +369,7 @@
 
       <div class="booking-actions">
         <a class="booking-action booking-action-primary reveal" href="https://wa.me/390000000000" target="_blank" rel="noopener">
+          <span class="booking-action-badge">Consigliato</span>
           <span class="booking-action-icon" aria-hidden="true">
             <svg viewBox="0 0 32 32"><path d="M16 6c-5.52 0-10 4.03-10 9 0 2.09.86 4.01 2.3 5.56L7 26l5.68-1.86A11.6 11.6 0 0 0 16 24c5.52 0 10-4.03 10-9S21.52 6 16 6Z"/></svg>
           </span>
