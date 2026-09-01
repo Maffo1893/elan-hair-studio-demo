@@ -78,8 +78,16 @@ if (heroScroll && heroVideo) {
     { word: 2, from: 0.76, to: 0.87 },  // FORM
   ];
 
+  // Finché questo è false, lo scroll continua a essere ascoltato (nessun blocco,
+  // nessun loader) ma updateScrub si ferma dopo aver aggiornato --p: CUT/COLOR/FORM
+  // e il video restano fermi sul loro stato iniziale invece di "correre avanti"
+  // indipendentemente da un video che non può ancora eseguire il seek richiesto.
+  let videoReady = false;
+  let updateScrub = null; // assegnata più sotto; qui serve solo il riferimento per il sync immediato
   function onVideoReady() {
     heroVideo.classList.add('is-ready');
+    videoReady = true;
+    if (updateScrub) updateScrub(); // sync immediato sulla posizione di scroll reale, niente attesa del prossimo scroll event
   }
 
   // Pre-seek invisibile su alcuni punti sparsi del file, video ancora a opacità 0:
@@ -122,7 +130,19 @@ if (heroScroll && heroVideo) {
     primed = true;
     const afterPlay = () => {
       heroVideo.pause();
-      if (reduceMotion) { onVideoReady(); } else { warmupBuffer(onVideoReady); }
+      const proceed = () => {
+        if (reduceMotion) { onVideoReady(); } else { warmupBuffer(onVideoReady); }
+      };
+      // play() può risolvere anche con dati minimi (o fallire e finire nel .catch):
+      // prima di fidarsi che il decoder sia davvero pronto per un seek arbitrario,
+      // verifica HAVE_CURRENT_DATA reale invece di assumerlo dal solo loadedmetadata.
+      if (heroVideo.readyState >= 2) {
+        proceed();
+      } else {
+        const onCanPlay = () => { clearTimeout(fallback); proceed(); };
+        const fallback = setTimeout(() => { heroVideo.removeEventListener('canplay', onCanPlay); proceed(); }, 800);
+        heroVideo.addEventListener('canplay', onCanPlay, { once: true });
+      }
     };
     const playPromise = heroVideo.play();
     if (playPromise && typeof playPromise.then === 'function') {
@@ -151,13 +171,19 @@ if (heroScroll && heroVideo) {
     let ticking = false;
     let lastTime = -1;
 
-    function updateScrub() {
+    updateScrub = function () {
       ticking = false;
       const rect = heroScroll.getBoundingClientRect();
       const total = rect.height - window.innerHeight;
       const raw = total > 0 ? -rect.top / total : 0;
       const p = Math.min(Math.max(raw, 0), 1);
       heroScroll.style.setProperty('--p', p.toFixed(4));
+
+      // Il video non può ancora eseguire il seek richiesto (decoder non sbloccato /
+      // dati insufficienti): niente testo che avanza né currentTime impostato finché
+      // non arriva onVideoReady, che richiama subito questa funzione per recuperare
+      // in un colpo solo la posizione corrente, senza inseguimenti animati.
+      if (!videoReady) return;
 
       const activeStep = steps.find(s => p >= s.from && p < s.to);
       heroWords.forEach(w => {
@@ -176,7 +202,7 @@ if (heroScroll && heroVideo) {
         heroVideo.currentTime = t;
         lastTime = t;
       }
-    }
+    };
     function onHeroScroll() {
       // Lo scroll reale dell'utente ha sempre la priorità sul warm-up in corso
       if (warmupCancel) { const cancel = warmupCancel; warmupCancel = null; cancel(); }
@@ -200,16 +226,4 @@ if (heroScroll && heroVideo) {
   }
 } else if (heroFrame) {
   heroFrame.classList.add('is-visible');
-}
-
-// ---------- Prenotazione: form demo (nessun invio reale) ----------
-const bookingForm = document.getElementById('booking-form');
-const formConfirm = document.getElementById('form-confirm');
-if (bookingForm) {
-  bookingForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    formConfirm.textContent = 'Richiesta demo ricevuta — nessun dato è stato inviato.';
-    formConfirm.classList.add('is-visible');
-    bookingForm.reset();
-  });
 }
